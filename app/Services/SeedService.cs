@@ -15,12 +15,23 @@ public class SeedService
 
     public async Task Seed()
     {
-        Console.WriteLine("called seed");
+        await DeleteFile();
+        await init();
+    }
+
+    public async Task DeleteFile()
+    {
+        // Console.WriteLine("called delete");
         var fileName = _connectionString[(_connectionString.LastIndexOf('=') + 1)..];
-        if (File.Exists(fileName)) 
-        {
-            File.Delete(fileName);
-        }
+        SqliteConnection.ClearAllPools();
+        await Task.Run(() => File.Delete(fileName));
+        Console.WriteLine(fileName);
+    }
+
+    public async Task init()
+    {
+        Console.WriteLine("called init");
+        
         await CreateTable(@"
                     CREATE TABLE categories (
                         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -41,11 +52,11 @@ public class SeedService
                     );");
 
         Console.WriteLine("Products table created");
-        await SeedCategories();  
-        await SeedProducts();  
+        await SeedCategories();
+        await SeedProducts();
     }
 
-    private async Task CreateTable(string sql) 
+    private async Task CreateTable(string sql)
     {
         try
         {
@@ -53,6 +64,7 @@ public class SeedService
             connection.Open();
             using var command = new SqliteCommand(sql, connection);
             await command.ExecuteNonQueryAsync();
+            // connection.Dispose();
         }
         catch (SqliteException ex)
         {
@@ -71,10 +83,12 @@ public class SeedService
                 incoming = JsonSerializer.Deserialize<List<Category>>(json);
             }
 
-            if (incoming != null && incoming.Count > 0) {
+            if (incoming != null && incoming.Count > 0)
+            {
                 using var connection = new SqliteConnection(_connectionString);
                 connection.Open();
                 await connection.ExecuteAsync(sql, incoming);
+                // connection.Dispose();
             }
         }
         catch (SqliteException ex)
@@ -112,10 +126,12 @@ public class SeedService
                 incoming = JsonSerializer.Deserialize<List<Product>>(json);
             }
 
-            if (incoming != null && incoming.Count > 0) {
+            if (incoming != null && incoming.Count > 0)
+            {
                 using var connection = new SqliteConnection(_connectionString);
                 connection.Open();
                 await connection.ExecuteAsync(sql, incoming);
+                // connection.Dispose();
             }
         }
         catch (SqliteException ex)
