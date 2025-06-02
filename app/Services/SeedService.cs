@@ -15,20 +15,20 @@ public class SeedService
 
     public async Task Seed()
     {
+        SqliteConnection.ClearAllPools(); // required before delete file 
         await DeleteFile();
-        await init();
+        await Initialise();
+        await SeedCategories();
+        await SeedProducts();
     }
 
     public async Task DeleteFile()
     {
-        // Console.WriteLine("called delete");
         var fileName = _connectionString[(_connectionString.LastIndexOf('=') + 1)..];
-        SqliteConnection.ClearAllPools();
         await Task.Run(() => File.Delete(fileName));
-        Console.WriteLine(fileName);
     }
 
-    public async Task init()
+    public async Task Initialise()
     {
         Console.WriteLine("called init");
         
@@ -52,8 +52,6 @@ public class SeedService
                     );");
 
         Console.WriteLine("Products table created");
-        await SeedCategories();
-        await SeedProducts();
     }
 
     private async Task CreateTable(string sql)
@@ -64,7 +62,6 @@ public class SeedService
             connection.Open();
             using var command = new SqliteCommand(sql, connection);
             await command.ExecuteNonQueryAsync();
-            // connection.Dispose();
         }
         catch (SqliteException ex)
         {
@@ -88,7 +85,6 @@ public class SeedService
                 using var connection = new SqliteConnection(_connectionString);
                 connection.Open();
                 await connection.ExecuteAsync(sql, incoming);
-                // connection.Dispose();
             }
         }
         catch (SqliteException ex)
@@ -131,7 +127,6 @@ public class SeedService
                 using var connection = new SqliteConnection(_connectionString);
                 connection.Open();
                 await connection.ExecuteAsync(sql, incoming);
-                // connection.Dispose();
             }
         }
         catch (SqliteException ex)
