@@ -11,12 +11,7 @@ namespace webapi.Controllers
     {
         public IActionResult Get()
         { 
-            return Ok( new
-            {
-                scheme = Request.Scheme,
-                host = Request.Host.Host,
-                port = Request.Host.Port
-            });
+            return Ok(Request.Host);
         }
     }
 }
