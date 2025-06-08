@@ -544,7 +544,7 @@
         "name": "Cool Black Hollow Brass Flower Dangle Earrings",
         "price": 211,
         "description": "1 Pair Simple Cool Black Hollow Flower Brass Dangle Earrings For Girls, Ideal Choice For Gifts",
-        "images": "6ce37a871e9fa929da49012376bb2afe.webp,791313de53e0be79f24475b361895fb4.webp,ae069182bdd569716a91a42510bf9c31.webp,f54b188ae2ab0197c2eb6de00c88c28b.webp,fc4bf1b2f0963fdb19b9fd31b117105a.webp",
+        "images": "fc4bf1b2f0963fdb19b9fd31b117105a.webp, 6ce37a871e9fa929da49012376bb2afe.webp,791313de53e0be79f24475b361895fb4.webp,ae069182bdd569716a91a42510bf9c31.webp,f54b188ae2ab0197c2eb6de00c88c28b.webp",
         "availability": 10,
         "slug": "simple-cool-black-hollow-flower-brass-dangle-earrings",
         "category": "earrings"
@@ -1214,9 +1214,9 @@
         "name": "Colored Bracelet Elastic Rope Adjustable",
         "price": 397,
         "description": "1pc Boho Style Natural Stone Beaded Bracelet, Handcrafted Non-Magnetic Fashion Jewelry, Ideal for Daily Wear & Gifting",
-        "images": "2fbb8fac-e345-432a-97b9-5e8eb12e000a.webp,78930c20-56a3-49d2-9764-fde1333b37b8.webp,9d505125-4b79-4763-9605-43a2d2e1f63d.webp,de1a053e-cdbd-416f-9343-89a1c9ee599c.webp",
+        "images": "de1a053e-cdbd-416f-9343-89a1c9ee599c.webp, 2fbb8fac-e345-432a-97b9-5e8eb12e000a.webp,78930c20-56a3-49d2-9764-fde1333b37b8.webp,9d505125-4b79-4763-9605-43a2d2e1f63d.webp",
         "availability": 10,
-        "slug": "colored--bracelet-elastic-rope-adjustable",
+        "slug": "colored-bracelet-elastic-rope-adjustable",
         "category": "bracelets"
     },
     {
