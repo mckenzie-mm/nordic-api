@@ -32,6 +32,19 @@ namespace webapi.Controllers
                         }
                     });
                 }
+                var len = await _productsService.GetCount();
+                if (len > 200)
+                {
+                    return BadRequest(new
+                    {
+                        title = "One or more validation errors occurred.",
+                        status = 400,
+                        errors = new
+                        {
+                            name = new string [1]{ "A maximum of 200 products is permitted in the trial app. Remove one or more products or reset data."},
+                        }
+                    });
+                }
                 // invoking the use case
                 await _productsService.Create(product);
                 var createdProduct = await _productsService.GetProduct(product.id);
