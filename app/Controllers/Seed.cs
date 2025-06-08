@@ -14,7 +14,7 @@ namespace webapi.Controllers
         public async Task<IActionResult> Get()
         {
             await _seedService.Seed();
-            return  Ok();
+            return  Ok("app successfully initialised with data");
         }
     }
 }

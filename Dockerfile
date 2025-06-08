@@ -14,8 +14,8 @@ RUN dotnet publish -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 
-ENV ASPNETCORE_HTTP_PORTS=8080
-EXPOSE 8080
+ENV ASPNETCORE_HTTP_PORTS=5000
+EXPOSE 5000
 WORKDIR /app
 COPY --from=build /app/out .
 ENTRYPOINT [ "dotnet", "webapi.dll" ]
