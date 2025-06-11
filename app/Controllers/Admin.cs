@@ -26,10 +26,7 @@ namespace webapi.Controllers
                     {
                         title = "One or more validation errors occurred.",
                         status = 400,
-                        errors = new
-                        {
-                            name = new string [1]{ "a product with that name already exists"},
-                        }
+                        error =  "a product with that name already exists"
                     });
                 }
                 var len = await _productsService.GetCount();
@@ -39,10 +36,7 @@ namespace webapi.Controllers
                     {
                         title = "One or more validation errors occurred.",
                         status = 400,
-                        errors = new
-                        {
-                            name = new string [1]{ "A maximum of 200 products is permitted in the trial app. Remove one or more products or reset data."},
-                        }
+                        error= "A maximum of 200 products is permitted in the trial app. Remove one or more products or reset data."
                     });
                 }
                 // invoking the use case
@@ -63,7 +57,7 @@ namespace webapi.Controllers
         {
             try
             {
-                 var product = request.toDomain();
+                var product = request.toDomain();
                 await _productsService.UpdateAsync(id, product);
                 return NoContent();
             }
