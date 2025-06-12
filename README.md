@@ -7,4 +7,4 @@ The app separates the backend code from the Nextjs into an independent dotnet se
 
 The code was built on a linux laptop using the dotnet cli with ASP.NET Core controller-based web API. The database is an Sqlite database. This was chosen in place of a postgres or SqlServer database due it's small size, which would otherwise have required an additional EC2 instance. Also, the low data size (< 1000) associated with these particular web apps did not warrant a more elaborate database.
 
-The .NET nuget package, "Dapper", was used for making the SQL queries (personal preference over Entity Framework). The DTO was coded manually (personal preference over AutoMapper).
+The .NET nuget package, "Dapper", was used for making the SQL queries (my personal preference over Entity Framework). The DTO was coded manually (again my personal preference over AutoMapper).
