@@ -5,6 +5,6 @@ The app runs on an AWS container service (ECS). This was chosen instead of Kuber
 
 The app separates the backend code from the Nextjs into an independent dotnet service to allow for the possibility of independent frontend and backend scaling if necessary. Although the backend could have been built using nodejs to be consistent with the frontend, current research indicates that dotnet consistently outperforms nodejs in speed tests (google, for example: https://www.youtube.com/watch?v=iFbpaRjRpOc).
 
-The code was built on a linux laptop using the dotnet cli with ASP.NET Core controller-based web API. The database is an Sqlite database. This was chosen in place of a postgres or SqlServer database due it's small size, which allows it to run alongside the api on the same EC2 instance. Also, the low data size (< 1000) associated with the web apps did not warrant a more elaborate database.
+The code was built on a linux laptop using the dotnet cli with ASP.NET Core controller-based web API. The database is an Sqlite database. This was chosen in place of a postgres or SqlServer database due it's small size, which allows it to run alongside the api on the same EC2 instance. Also, the low data size (< 1000) associated with these particular web apps did not warrant a more elaborate database.
 
 The .NET nuget package, "Dapper", was used for making the SQL queries (personal preference over Entity Framework). The DTO was coded manually.
