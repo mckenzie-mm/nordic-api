@@ -1,4 +1,4 @@
-# Nordic Backent (.NET web api)
+# Nordic Backend (.NET core web api)
 This is the dotnet back end built for the company 'Nordicmade'. The front end code uses Nextjs and is at https://github.com/mckenzie-mm/nordic-frontend. 
 
 The app runs on an AWS container service (ECS). This was chosen instead of Kubernetes due to the lower cost and ease with which a demonstration setup could be configured with ECS. It is deployed with infra-structure as a code (CDK). It is currently deployed only on the Australian AWS region and will be slow to load in Europe/Norway. The CDK code used to deploy the dotnet and Nextjs is at: https://github.com/mckenzie-mm/ecs-nordic-cdk
