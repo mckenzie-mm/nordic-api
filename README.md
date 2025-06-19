@@ -9,4 +9,6 @@ The code was built on a linux laptop using the dotnet cli with ASP.NET Core cont
 
 The .NET nuget package, "Dapper", was used for making the SQL queries (my personal preference over Entity Framework). The DTO was coded manually (again my personal preference over AutoMapper).
 
+June 2025
+
 
